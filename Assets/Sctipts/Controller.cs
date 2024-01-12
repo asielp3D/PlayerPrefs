@@ -18,7 +18,6 @@ public class Controller : MonoBehaviour
     [SerializeField] private LayerMask _groundLayer;
 
     private bool _isGrounded;
-    Animator _animator;
     private float _gravity = -9.81f;
     private Vector3 _playerGravity;
 
@@ -45,8 +44,6 @@ public class Controller : MonoBehaviour
     {
         _controller = GetComponent <CharacterController>();
         _camara = Camera.main.transform;
-
-        _animator = GetComponentInChildren<Animator>();
     }
 
     void Movimiento()
@@ -62,8 +59,7 @@ public class Controller : MonoBehaviour
             Vector3 moveDirection = Quaternion.Euler(0, targetAngle, 0) * Vector3.forward;
             _controller.Move(moveDirection * _playerSpeed * Time.deltaTime);
         }
-            _animator.SetFloat("VelX", 0);    
-            _animator.SetFloat("VelZ", direction.magnitude);
+           
     }
 
     void Salto()
@@ -80,8 +76,14 @@ public class Controller : MonoBehaviour
         if(_isGrounded && Input.GetButtonDown("Jump"))
         {
             _playerGravity.y = Mathf.Sqrt(_jumpForce * -2 * _gravity);
-            _animator.SetBool("isJumping",!_isGrounded);
         }
-        
+    }
+
+    void OnTriggerEnter(Collider collider)
+    {
+        if(collider.gameObject.layer == 6)
+        {
+
+        }
     }
 }
