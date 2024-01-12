@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class CheckPoints : MonoBehaviour
 {
@@ -8,33 +9,40 @@ public class CheckPoints : MonoBehaviour
 
     [SerializeField] private Vector3 userPosition;
 
+    [SerializeField] Transform playerTransform;
+
+    [SerializeField] public string userName;
+
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        playerTransform = GameObject.Find("Player").GetComponent<Transform>();
+
+        LoadData();
     }
 
     
-    void SaveData()
+    public void SaveData()
     {
-        PlayerPrefs.SetFloat("positionX", userPosition.x);
+        PlayerPrefs.SetFloat("positionX", playerTransform.position.x);
 
-        PlayerPrefs.SetFloat("positionY", userPosition.y);
+        PlayerPrefs.SetFloat("positionY", playerTransform.position.y);
 
-        PlayerPrefs.SetFloat("positionZ", userPosition.z);
+        PlayerPrefs.SetFloat("positionZ", playerTransform.position.z);
 
     }
 
     void LoadData()
     {
-        userNameText.text = "User name: " + PlayerPrefs.GetString("name", "No name");
+        /*userNameText.text = "User name: " + PlayerPrefs.GetString("name", "No name");
 
-        userScoreText.text = "User score: " + PlayerPrefs.GetInt("score", 0).ToString();
+        userScoreText.text = "User score: " + PlayerPrefs.GetInt("score", 0).ToString();*/
 
-        userPositionText.text = "User position: " + PlayerPrefs.GetFloat("positionX", 0).ToString() + "x " + 
+        userPositionText.text = "User position: " + PlayerPrefs.GetFloat("positionX", 326.345f).ToString() + "x " + 
 
-                                                    PlayerPrefs.GetFloat("positionY", 0).ToString() + "y " + 
+                                                    PlayerPrefs.GetFloat("positionY", 12.33999f).ToString() + "y " + 
 
-                                                    PlayerPrefs.GetFloat("positionZ", 0).ToString() + "z " ;
+                                                    PlayerPrefs.GetFloat("positionZ", 783.98f).ToString() + "z " ;
     }
 }

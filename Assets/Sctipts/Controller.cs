@@ -21,13 +21,13 @@ public class Controller : MonoBehaviour
     private float _gravity = -9.81f;
     private Vector3 _playerGravity;
 
-
+    CheckPoints checkpoints;
     
     // Start is called before the first frame update
     void Start()
     {
-       
-
+       _controller = GetComponent<CharacterController>();
+       checkpoints = GameObject.Find("SaveManager").GetComponent<CheckPoints>();
     }
 
     // Update is called once per frame
@@ -83,7 +83,23 @@ public class Controller : MonoBehaviour
     {
         if(collider.gameObject.layer == 6)
         {
+            checkpoints.SaveData();
+            Debug.Log("checkpoint 1");
+            checkpoints.userName = 1;
+        }
 
+        if(collider.gameObject.layer == 7)
+        {
+            checkpoints.SaveData();
+            Debug.Log("checkpoint 2");
+            checkpoints.userName = 2;
+        }
+
+        if(collider.gameObject.layer == 8)
+        {
+            checkpoints.SaveData();
+            Debug.Log("checkpoint 3");
+            checkpoints.userName = 3;
         }
     }
 }
