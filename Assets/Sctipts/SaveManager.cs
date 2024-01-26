@@ -30,6 +30,7 @@ public class SaveManager : MonoBehaviour
         PlayerPrefs.SetFloat("positionX", userPosition.x);
         PlayerPrefs.SetFloat("positionY", userPosition.y);
         PlayerPrefs.SetFloat("positionZ", userPosition.z);
+        LoadData();
     }
 
     void LoadData()

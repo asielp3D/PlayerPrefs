@@ -28,6 +28,7 @@ public class Controller : MonoBehaviour
     {
        _controller = GetComponent<CharacterController>();
        checkpoints = GameObject.Find("SaveManager").GetComponent<CheckPoints>();
+
     }
 
     // Update is called once per frame
@@ -44,6 +45,12 @@ public class Controller : MonoBehaviour
     {
         _controller = GetComponent <CharacterController>();
         _camara = Camera.main.transform;
+        
+    }
+
+     void PlayerRestart()
+    {
+        transform.position = new Vector3(checkpoints.userPosition.x,checkpoints.userPosition.y,checkpoints.userPosition.z);
     }
 
     void Movimiento()

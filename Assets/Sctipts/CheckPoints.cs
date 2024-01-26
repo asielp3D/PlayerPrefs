@@ -5,19 +5,19 @@ using UnityEngine.UI;
 
 public class CheckPoints : MonoBehaviour
 {
-    [SerializeField] private Text userPositionText;
+    [SerializeField] Text checkText;
 
-    [SerializeField] private Vector3 userPosition;
+    [SerializeField] public string checkpoint;
 
-    [SerializeField] Transform playerTransform;
+    [SerializeField]public Vector3 userPosition;
 
-    [SerializeField] public string userName;
+    Controller playerTransform;
 
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
-        playerTransform = GameObject.Find("Player").GetComponent<Transform>();
+        playerTransform = GameObject.Find("Player").GetComponent<Controller>();
 
         LoadData();
     }
@@ -25,6 +25,8 @@ public class CheckPoints : MonoBehaviour
     
     public void SaveData()
     {
+        PlayerPrefs.SetString("name", checkpoint);
+
         PlayerPrefs.SetFloat("positionX", playerTransform.position.x);
 
         PlayerPrefs.SetFloat("positionY", playerTransform.position.y);
@@ -35,14 +37,16 @@ public class CheckPoints : MonoBehaviour
 
     void LoadData()
     {
-        /*userNameText.text = "User name: " + PlayerPrefs.GetString("name", "No name");
+       
 
-        userScoreText.text = "User score: " + PlayerPrefs.GetInt("score", 0).ToString();*/
-
-        userPositionText.text = "User position: " + PlayerPrefs.GetFloat("positionX", 326.345f).ToString() + "x " + 
+        /*userScoreText.text = "User score: " + PlayerPrefs.GetInt("score", 0).ToString();*/
+        checkText.text = "Checkpoint: " + PlayerPrefs.GetString("name", "No name");
+       /* userPosition.text = "User position: " + PlayerPrefs.GetFloat("positionX", 326.345f).ToString() + "x " + 
 
                                                     PlayerPrefs.GetFloat("positionY", 12.33999f).ToString() + "y " + 
 
-                                                    PlayerPrefs.GetFloat("positionZ", 783.98f).ToString() + "z " ;
+                                                    PlayerPrefs.GetFloat("positionZ", 783.98f).ToString() + "z " ;*/
+
+        userPosition = new Vector3 (PlayerPrefs.GetFloat("positionX", 326.345f),PlayerPrefs.GetFloat("positionY", 12.33999f),PlayerPrefs.GetFloat("positionZ", 783.98f));
     }
 }
