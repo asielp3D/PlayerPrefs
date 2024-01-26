@@ -85,21 +85,21 @@ public class Controller : MonoBehaviour
         {
             checkpoints.SaveData();
             Debug.Log("checkpoint 1");
-            checkpoints.userName = 1;
+            //checkpoints.userName = 1;
         }
 
         if(collider.gameObject.layer == 7)
         {
             checkpoints.SaveData();
             Debug.Log("checkpoint 2");
-            checkpoints.userName = 2;
+            //checkpoints.userName = 2;
         }
 
         if(collider.gameObject.layer == 8)
         {
             checkpoints.SaveData();
             Debug.Log("checkpoint 3");
-            checkpoints.userName = 3;
+            //checkpoints.userName = 3;
         }
     }
 }
