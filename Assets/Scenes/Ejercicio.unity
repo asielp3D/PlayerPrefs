@@ -763,9 +763,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a8b3883b3501edd43a043586e7b11501, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  userPositionText: {fileID: 1483039723}
+  checkText: {fileID: 1483039723}
+  checkpoint: 
   userPosition: {x: 0, y: 0, z: 0}
-  playerTransform: {fileID: 0}
 --- !u!1 &1188032571
 GameObject:
   m_ObjectHideFlags: 0

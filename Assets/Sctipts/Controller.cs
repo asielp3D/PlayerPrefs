@@ -89,24 +89,27 @@ public class Controller : MonoBehaviour
     void OnTriggerEnter(Collider collider)
     {
         if(collider.gameObject.layer == 6)
-        {
+        { 
+            checkpoints.checkpoint = "1";
+            checkpoints.userPosition = transform.position;
             checkpoints.SaveData();
             Debug.Log("checkpoint 1");
-            //checkpoints.userName = 1;
         }
 
         if(collider.gameObject.layer == 7)
         {
+            checkpoints.checkpoint = "2";
+            checkpoints.userPosition = transform.position;
             checkpoints.SaveData();
             Debug.Log("checkpoint 2");
-            //checkpoints.userName = 2;
         }
 
         if(collider.gameObject.layer == 8)
         {
+            checkpoints.checkpoint = "3";
+            checkpoints.userPosition = transform.position;
             checkpoints.SaveData();
             Debug.Log("checkpoint 3");
-            //checkpoints.userName = 3;
         }
     }
 }

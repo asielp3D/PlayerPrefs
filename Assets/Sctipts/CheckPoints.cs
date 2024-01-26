@@ -11,15 +11,17 @@ public class CheckPoints : MonoBehaviour
 
     [SerializeField]public Vector3 userPosition;
 
-    Controller playerTransform;
+    Transform playerTransform;
 
 
     // Start is called before the first frame update
     void Awake()
     {
-        playerTransform = GameObject.Find("Player").GetComponent<Controller>();
+        playerTransform = GameObject.Find("Player").transform;
 
         LoadData();
+
+        playerTransform.position = userPosition;
     }
 
     
@@ -38,16 +40,9 @@ public class CheckPoints : MonoBehaviour
 
     void LoadData()
     {
-       
-
-        /*userScoreText.text = "User score: " + PlayerPrefs.GetInt("score", 0).ToString();*/
+    
         checkText.text = "Checkpoint: " + PlayerPrefs.GetString("name", "No name");
-       /* userPosition.text = "User position: " + PlayerPrefs.GetFloat("positionX", 326.345f).ToString() + "x " + 
-
-                                                    PlayerPrefs.GetFloat("positionY", 12.33999f).ToString() + "y " + 
-
-                                                    PlayerPrefs.GetFloat("positionZ", 783.98f).ToString() + "z " ;*/
-
+       
         userPosition = new Vector3 (PlayerPrefs.GetFloat("positionX", 326.345f),PlayerPrefs.GetFloat("positionY", 12.33999f),PlayerPrefs.GetFloat("positionZ", 783.98f));
     }
 }
