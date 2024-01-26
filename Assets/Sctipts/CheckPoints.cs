@@ -27,12 +27,13 @@ public class CheckPoints : MonoBehaviour
     {
         PlayerPrefs.SetString("name", checkpoint);
 
-        PlayerPrefs.SetFloat("positionX", playerTransform.position.x);
+        PlayerPrefs.SetFloat("positionX", playerTransform.transform.position.x);
 
-        PlayerPrefs.SetFloat("positionY", playerTransform.position.y);
+        PlayerPrefs.SetFloat("positionY", playerTransform.transform.position.y);
 
-        PlayerPrefs.SetFloat("positionZ", playerTransform.position.z);
+        PlayerPrefs.SetFloat("positionZ", playerTransform.transform.position.z);
 
+        LoadData();
     }
 
     void LoadData()
